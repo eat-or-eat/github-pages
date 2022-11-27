@@ -1,0 +1,56 @@
+site_name: 一点笔记
+
+nav:
+  - Home: index.md
+  - pandas与numpy:
+    - pandas常用操作: pandas与numpy/pandas常用操作.md
+  - 数据结构:
+    - 剑指offer: 数据结构/剑指offer.md
+  - Linux工具:
+    - conda: Linux工具/conda.md
+  - docker:
+    - 笔记: docker/docker笔记.md
+  - contact me: contact_me.md
+
+theme:
+  font:
+    text: Ubuntu
+    code: Ubuntu Mono
+  name: material
+  favicon: img/logo.png
+  logo: img/logo.png
+  feature:
+    tabs: true
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.instant
+    - navigation.top
+    - navigation.tracking
+    - toc.follow
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+
