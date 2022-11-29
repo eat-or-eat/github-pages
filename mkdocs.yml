@@ -2,6 +2,9 @@ site_name: 一点笔记
 
 nav:
   - Home: index.md
+  - NLP:
+    - 一、文本分类: NLP/一、文本分类.md
+    - 二、文本匹配: NLP/二、文本匹配.md
   - pandas与numpy:
     - pandas常用操作: pandas与numpy/pandas常用操作.md
   - 数据结构:
