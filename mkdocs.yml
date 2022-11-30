@@ -2,17 +2,42 @@ site_name: 一点笔记
 
 nav:
   - Home: index.md
+  - ML:
+    - 一、K-means: ML/一、K-means.md
+    - 二、决策树.md: ML/二、决策树.md
+    - 三、随机森林.md: ML/三、随机森林.md
+    - 四、朴素贝叶斯分类.md: ML/四、朴素贝叶斯分类.md
+  - DL:
+    - 一、基本网络结构: DL/一、基本网络结构.md
+    - 二、其他常见网络结构: DL/二、其他常见网络结构.md
+    - 三、激活函数: DL/三、激活函数.md
+    - 四、损失函数与优化器: DL/四、损失函数与优化器.md
+    - 五、评价指标: DL/五、评价指标.md
+    - 六、模型压缩: DL/六、模型压缩.md
+    - 七、模型融合: DL/七、模型融合.md
   - NLP:
-    - 一、文本分类: NLP/一、文本分类.md
-    - 二、文本匹配: NLP/二、文本匹配.md
-  - pandas与numpy:
-    - pandas常用操作: pandas与numpy/pandas常用操作.md
+    - 基本任务:
+      - 一、文本分类: NLP/基本任务/一、文本分类.md
+      - 二、文本匹配: NLP/基本任务/二、文本匹配.md
+      - 三、序列标注: NLP/基本任务/三、序列标注.md
+      - 四、seq2seq: NLP/基本任务/四、seq2seq.md
+      - 五、计算词权重: NLP/基本任务/五、计算词权重.md
+      - 六、word2vec: NLP/基本任务/六、word2vec.md
+      - 七、语言模型: NLP/基本任务/七、语言模型.md
+    - 综合任务:
+      - 一、问答系统: NLP/综合任务/一、问答系统.md
+      - 二、知识图谱: NLP/综合任务/二、知识图谱.md
+      - 三、推荐系统: NLP/综合任务/三、推荐系统.md
+  - 论文阅读:
+      - 2018-bert.md: 论文阅读/2018-bert.md
   - 数据结构:
     - 剑指offer: 数据结构/剑指offer.md
+  - pandas与numpy:
+    - pandas常用操作: pandas与numpy/pandas常用操作.md
   - Linux工具:
     - conda: Linux工具/conda.md
-  - docker:
-    - 笔记: docker/docker笔记.md
+  - 部署与运维:
+    - docker: docker/docker笔记.md
   - contact me: contact_me.md
 
 theme:
@@ -40,7 +65,7 @@ theme:
       toggle:
         icon: material/weather-night
         name: Switch to light mode
-
+  language: zh
 markdown_extensions:
   - admonition
   - pymdownx.details

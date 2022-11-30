@@ -1,2 +1,2 @@
 # 笔记网页
-> eat-or-eat.gitlab.io/github-pages
+> [https://eat-or-eat.github.io/github-pages/](https://eat-or-eat.github.io/github-pages/)
