@@ -36,7 +36,7 @@ nav:
     - pandas常用操作: pandas与numpy/pandas常用操作.md
   - Linux工具:
     - conda: Linux工具/conda.md
-    - 文件操作: Linux工具/cmd指令.md
+    - cmd指令: Linux工具/cmd指令.md
   - 部署与运维:
     - docker: docker/docker笔记.md
   - contact me: contact_me.md
