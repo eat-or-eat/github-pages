@@ -48,3 +48,39 @@ tar -zxvf name.tar.gz -C ./target_folder/
  unzip unzip -d /target_path/ name.zip
 ```
 
+# 二、磁盘占用查看
+
+## 1.文件/文件夹占用查看
+
+```bash
+du -sh *
+
+# 示例
+280M    XX1
+2.4M    XX2
+1.4M    XX3
+55M     XX4
+34M     XX5
+2.5G    XX6
+```
+
+
+
+## 2.系统磁盘占用查看
+
+```bash
+df -lh
+
+# 示例
+Filesystem                   Size  Used Avail Use% Mounted on
+overlay                      3.6T  2.5T  965G  73% /
+tmpfs                         64M     0   64M   0% /dev
+tmpfs                         56G     0   56G   0% /sys/fs/cgroup
+```
+
+
+
+
+
+
+
