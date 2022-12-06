@@ -38,7 +38,8 @@ nav:
     - conda: Linux工具/conda.md
     - cmd指令: Linux工具/cmd指令.md
   - 部署与运维:
-    - docker: docker/docker笔记.md
+    - docker: 部署与运维/docker笔记.md
+    - 单机多服务: 部署与运维/单机多服务.md
   - contact me: contact_me.md
 
 theme:
