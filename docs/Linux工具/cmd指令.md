@@ -78,55 +78,28 @@ tmpfs                         64M     0   64M   0% /dev
 tmpfs                         56G     0   56G   0% /sys/fs/cgroup
 ```
 
+# 三、指定GPU
 
+## 1.命令行指定GPU
 
-# 三、定时
+```
+# 只用CPU
+CUDA_VISIBLE_DEVICES=-1 python train.py
+# 单GPU
+CUDA_VISIBLE_DEVICES=2 python train.py
+# 多GPU
+CUDA_VISIBLE_DEVICES=2,3,4 python train.py
+```
 
-## 1.contrab
+## 2.程序中指定GPU
 
-> 用于对于linxu系统的定时任务，方便执行脚本
-
-[Crontab Explained in Linux [With Examples\] (linuxhandbook.com)](https://linuxhandbook.com/crontab/)
-
-[Linux crontab 命令 | 菜鸟教程 (runoob.com)](https://www.runoob.com/linux/linux-comm-crontab.html)
-
-
-
-## 2.apscheduler
-
-> 用于python程序内的定时
-
-| 常用定时函数                                                 | 作用         |
-| ------------------------------------------------------------ | ------------ |
-| [`apscheduler.triggers.date`](https://apscheduler.readthedocs.io/en/3.x/modules/triggers/date.html#module-apscheduler.triggers.date) | 定时一次     |
-| [`apscheduler.triggers.interval`](https://apscheduler.readthedocs.io/en/3.x/modules/triggers/interval.html#module-apscheduler.triggers.interval) | 间隔定时     |
-| [`apscheduler.triggers.cron`](https://apscheduler.readthedocs.io/en/3.x/modules/triggers/cron.html#module-apscheduler.triggers.cron) | 通用时间定时 |
-
-# 四、网络端口启动
-
-## 1.简单方式
-
-`python -m http.server portID`
-
-## 2.nginx反向代理
-
-[Beginner’s Guide (nginx.org)](https://nginx.org/en/docs/beginners_guide.html)
-
-### ①一个简单mkdocs部署在服务器的例子
-
-```bash
-# 编写mkdocs文件(mkdocs.yml、markdown等)
-pass
-
-# CMD:构建site静态文件
-mkdocs build
-
-#一个简单用nginx代理mkdocs生成site的Dockerfile
-FROM nginx:1.22.1
-ADD ./site /usr/share/nginx/html/
-
-# CMD：构建、运行
-sudo docker build -t mkdocs-nginx -f Dockerfile . 
-sudo docker run -d -p 8000:80 mkdocs-nginx
+```python
+import os 
+# 只用CPU
+os.environ['CUDA_VISIBLE_DEVICES'] = "-1"
+# 单个GPU
+os.environ['CUDA_VISIBLE_DEVICES'] = "1"
+# 多个GPU
+os.environ['CUDA_VISIBLE_DEVICES'] = "0,1"  #（代表仅使用第0，1号GPU）
 ```
 
