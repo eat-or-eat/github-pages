@@ -125,7 +125,10 @@ class CQueue:
 
 ## 4.[剑指 Offer 20. 表示数值的字符串](https://leetcode-cn.com/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof/)
 
-## 5.[剑指 Offer 24. 反转链表](定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。)
+有限状态机，略
+
+## 5.[剑指 Offer 24. 反转链表](https://leetcode.cn/problems/fan-zhuan-lian-biao-lcof/)
+
 
 > 时间O(N):N为链表的长度
 >
@@ -150,7 +153,7 @@ class Solution:
             # 更新下一组节点
             pre = cur
             cur = temp
-        return pre
+        return pre  # pre才是实际的节点，cur已经是None了
 ```
 
 ## 6.[剑指 Offer 30. 包含 min 函数的栈](https://leetcode-cn.com/problems/bao-han-minhan-shu-de-zhan-lcof/)
