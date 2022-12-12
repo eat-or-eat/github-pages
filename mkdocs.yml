@@ -32,6 +32,7 @@ nav:
       - 2018-bert.md: 论文阅读/2018-bert.md
   - 数据结构:
     - 剑指offer: 数据结构/剑指offer.md
+    - LCHot-100: 数据结构/LCHot-100.md
   - pandas与numpy:
     - pandas常用操作: pandas与numpy/pandas常用操作.md
   - Linux工具:
