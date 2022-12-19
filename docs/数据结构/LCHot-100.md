@@ -104,3 +104,54 @@ class Solution:
         else:
             return num[n//2]  # 基数
 ```
+
+
+
+#### [5. 最长回文子串](https://leetcode.cn/problems/longest-palindromic-substring/?favorite=2cktkvj)
+
+> 时间O($N^2$)：遍历N个元素，每个元素判断也是O(N)的复杂度，总共N*N
+>
+> 空间O(1)：常数个变量
+
+```python
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        def backtextcheck(left, right):  # 中心扩散判断
+            while left >= 0 and right < len(s) and s[left] == s[right]:
+                left -= 1
+                right += 1
+            return left + 1, right - 1  # 各返回一个位置代表实际的左右下标
+        
+        start, end = 0, 0
+        for i in range(len(s)):
+            start1, end1 = backtextcheck(i, i)  # 中心元素是奇数个
+            start2, end2 = backtextcheck(i, i + 1)  # 中心元素是偶数个
+            if end1 - start1 > end - start:
+                end = end1
+                start = start1
+            if end2 - start2 > end - start:
+                end = end2
+                start = start2
+        return s[start: end + 1]  # 切片最右边+1返回字串
+```
+
+#### [11. 盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/?favorite=2cktkvj)
+
+> 时间O(N)：遍历N个容器
+>
+> 空间O(1)：常数个变量
+
+```python
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        left, right, res = 0, len(height) - 1, 0
+        while left < right:  # 跳出条件直到左右相碰
+            # 循环收窄短边，同同时更新最大面积
+            if height[left] < height[right]:
+                res = max(res, height[left] * (right - left))
+                left += 1
+            else:
+                res = max(res, height[right] * (right - left))
+                right -= 1
+        return res
+```
