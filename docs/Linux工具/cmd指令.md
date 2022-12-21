@@ -45,7 +45,7 @@ tar -zxvf name.tar.gz -C ./target_folder/
  zip -r dir1.zip dir1/
  
  # 解压
- unzip unzip -d /target_path/ name.zip
+ unzip -d /target_path/ name.zip
 ```
 
 # 二、磁盘占用查看
@@ -101,5 +101,15 @@ os.environ['CUDA_VISIBLE_DEVICES'] = "-1"
 os.environ['CUDA_VISIBLE_DEVICES'] = "1"
 # 多个GPU
 os.environ['CUDA_VISIBLE_DEVICES'] = "0,1"  #（代表仅使用第0，1号GPU）
+```
+
+# 四、nvidia-smi刷新
+
+```bash
+## 隔一秒刷新
+# linux
+watch -n 1 -d nvidia=smi
+# win10
+nvidia-smi -l 1
 ```
 

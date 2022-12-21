@@ -135,6 +135,35 @@ class Solution:
         return s[start: end + 1]  # 切片最右边+1返回字串
 ```
 
+#### [10. 正则表达式匹配](https://leetcode.cn/problems/regular-expression-matching/?favorite=2cktkvj)
+
+> 时间O(MN)：遍历二维dp表
+>
+> 空间O(MN)：dp表有MN个
+
+```python
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        # 初始化DP表
+        m, n = len(s) + 1, len(p) + 1
+        dp = [[False] * n for _ in range(m)]
+        dp[0][0] = True
+        for i in range(2, n, 2):
+            dp[0][i] = dp[0][i - 2] and p[i - 1] == '*'
+        # 遍历状态
+        for j in range(1, m):
+            for i in range(1, n):
+                if p[i - 1] == "*":
+                    if dp[j][i - 2]: dp[j][i] = True
+                    elif dp[j - 1][i] and s[j - 1] == p[i - 2]: dp[j][i] = True
+                    elif dp[j - 1][i] and p[i - 2] == '.': dp[j][i] = True
+                else:
+                    if dp[j - 1][i - 1] and p[i - 1] == s[j - 1]: dp[j][i] = True
+                    elif dp[j - 1][i - 1] and p[i - 1] == '.': dp[j][i] = True
+        return dp[-1][-1]
+```
+
+
 #### [11. 盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/?favorite=2cktkvj)
 
 > 时间O(N)：遍历N个容器
