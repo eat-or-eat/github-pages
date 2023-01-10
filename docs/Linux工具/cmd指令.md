@@ -53,6 +53,13 @@ tar -zxvf name.tar.gz -C ./target_folder/
 ## 1.文件/文件夹占用查看
 
 ```bash
+ls -lh
+# 示例
+total 68K
+-rw-r--r-- 1 root root 2.4K Jan  5 22:48 XX1
+-rw-r--r-- 1 root root  12K Jan  5 22:48 XX2
+-rw-r--r-- 1 root root  111 Jan  5 22:48 XX3
+
 du -sh *
 
 # 示例
