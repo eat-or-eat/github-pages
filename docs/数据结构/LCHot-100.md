@@ -184,3 +184,99 @@ class Solution:
                 right -= 1
         return res
 ```
+
+#### [15. 三数之和](https://leetcode.cn/problems/3sum/?favorite=2cktkvj)
+
+> 时间O($N^2$)：其中固定指针`k`循环复杂度 O(N)，双指针 `i`，`j` 复杂度 O(N)。
+>
+> 空间O(1)：指针使用常数大小的额外空间。
+
+```python
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        nums.sort()
+        res = []
+        for k in range(len(nums) - 2):  # 定位k循环，k定位少两个指针的位置
+            i, j = k + 1, len(nums) - 1
+            if k > 0 and nums[k] == nums[k - 1]: continue  # 跳过重复，首个k没有重复不用跳，后面有重复则跳过
+            while i < j:  # 判断双指针是否遍历完
+                s = nums[k] + nums[i] + nums[j]
+                if s < 0:
+                    i += 1
+                    while i < j and nums[i] == nums[i - 1]: i += 1
+                elif s > 0:
+                    j -= 1
+                    while i < j and nums[j] == nums[j + 1]: j -= 1
+                else:
+                    res.append([nums[k], nums[i], nums[j]])
+                    i += 1
+                    j -= 1
+                    while i < j and nums[i] == nums[i - 1]: i += 1
+                    while i < j and nums[j] == nums[j + 1]: j -= 1
+        return res
+```
+
+#### [17. 电话号码的字母组合](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/?favorite=2cktkvj)
+
+> 时间O($3^m * 4^n$)：m,n分别为三个字符和四个字符的数字长度每种组合都会计算，复杂度相乘
+>
+> 空间O(m+n)：m+n的情况不包括输出空间是回溯过程中的递归调用深度，如果算上输出空间的话为O($3^m * 4^n$)
+
+```python
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        if not digits:  # 空值情况
+            return []
+        
+        digits2str = {  # 映射表
+            '2': 'abc',
+            '3': 'def',
+            '4': 'ghi',
+            '5': 'jkl',
+            '6': 'mno',
+            '7': 'pqrs',
+            '8': 'tuv',
+            '9': 'wxyz'
+        }
+
+        def backtrack(i):  # 回溯
+            if i == len(digits):  # 索引超过实际长度才追加，不然会漏掉最后一个字符
+                results.append(''.join(result))
+            else:
+                digit = digits[i]
+                for s in digits2str[digit]:
+                    result.append(s)
+                    backtrack(i + 1)
+                    result.pop()
+        results = []
+        result = []
+        backtrack(0)  # 启动回溯
+        return results
+```
+
+#### [19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/?favorite=2cktkvj)
+
+> 时间O(N)：N为链表的长度，相当于遍历一次
+>
+> 空间O(1)：常数个变量
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        dummy = ListNode(0, head)
+        first = head
+        second = dummy
+        for _ in range(n):
+            first = first.next  # 遍历n次是因为后面判断是当first为空时改动前驱节点
+        
+        while first:
+            first = first.next
+            second = second.next
+        second.next = second.next.next
+        return dummy.next
+```
